@@ -31,7 +31,7 @@ try:
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
 
-            message = json.dumps({'h': getHum(DHT_PIN), 't': getTemp(DHT_PIN), 'l': getLux(LUX_MCP)})
+            message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
             sent = hologram.sendMessage(message)
 
             lightOff(LED_PIN)
