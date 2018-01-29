@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import lightOn, lightOff ## Import blink function
-from myDHT import getTemp, getHum ## Import temperature and humidity functions
-from myMCP import getLux ## Import photoresistor function
+from myDHT import getTempString, getHumString ## Import temperature and humidity functions
+from myMCP import getLuxString ## Import photoresistor function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 import json ## Import library to create and read JSON
 
@@ -21,8 +21,8 @@ with open('../credentials.json') as key_file:
 ## hologram = HologramCloud(devicekey, enable_inbound=False)
 
 ## Exercise 06 - send data to Hologram's cloud through Cellular
-hologram = HologramCloud(devicekey, network='cellular', enable_inbound=False)
-hologram.network.connect() ## connect from the cellular netowork
+hologram = HologramCloud(dict(), network='cellular', enable_inbound=False)
+#hologram.network.connect() ## connect from the cellular netowork
 
 try:
     while True:
