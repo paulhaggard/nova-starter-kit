@@ -28,7 +28,7 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=False)
 tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
 humBDC = getHum(DHT_PIN)
 luxBDC = getLux(LUX_MCP)
-tempMinAlarm = 40           #temperature to set alarm bit
+tempMinAlarm           #temperature to set alarm bit
 alarmBDC = 0
 
 
@@ -54,9 +54,20 @@ try:
                     humBDC = getHum(DHT_PIN)
                     luxBDC = getLux(LUX_MCP)
                     print tempBDC + humBDC + luxBDC
-        else
+        else:
           print 'System Alarm!'
           print tempBDC
+          while alarmBDC == 1:
+                if tempBDC >= tempMinAlarm:
+                   alarmBDC = 0
+                   break
+                else:
+                    time.sleep(5)
+                    print 'Sleeping'
+                    tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
+                    humBDC = getHum(DHT_PIN)
+                    luxBDC = getLux(LUX_MCP)
+                    print tempBDC + humBDC + luxBDC
           
             #message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
             #sent = hologram.sendMessage(message)
@@ -67,8 +78,8 @@ try:
                 #print 'Success! Message sent to the cloud.'
                 #print message
 except: 
-    print 'Error type [' + sent + ']'
-    print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
+    hologram.sendMessage('Error type [' + sent + ']')
+    hologram.sendMessage('Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-')
     hologram.sendMessage('BDC Temperature Monitoring System has gone down.')
 
 finally:
