@@ -26,7 +26,8 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.network.connect() ## connect from the cellular netowork
 while True:
     smsMessages = hologram.popReceivedSMS()
-    print smsMessages
+    if smsMessages != "None":
+        print smsMessages
 try:
     while True:
         if GPIO.input(BTN_PIN) == False:
