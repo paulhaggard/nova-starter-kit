@@ -27,10 +27,12 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.enableSMS()
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
+print type(smsNone)
 while True:
     smsMessages = hologram.popReceivedSMS()
     if smsMessages != smsNone:
         print smsMessages
+        print type(smsMessages)
         if smsMessages.find("update"):
             os.system("cd ~/nova-starter-kit/")
             os.system("git pull")
