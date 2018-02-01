@@ -1,4 +1,5 @@
 import time
+import os
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import lightOn, lightOff ## Import blink function
 from myDHT import getTempString, getHumString ## Import temperature and humidity functions
@@ -30,9 +31,14 @@ while True:
     smsMessages = hologram.popReceivedSMS()
     if smsMessages != smsNone:
         print smsMessages
-        time.sleep(5)
+        if smsMessages.find("update"):
+            os.system("cd ~/nova-starter-kit/")
+            os.system("git pull")
+            os.system("sudo restart")
+
+        time.sleep(15)
     else:
-        time.sleep(5)
+        time.sleep(15)
         print "sleeping smsMessages"
 try:
     while True:
