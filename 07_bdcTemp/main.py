@@ -1,3 +1,4 @@
+import time
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import lightOn, lightOff ## Import blink function
 from myDHT import getTempString, getHumString ## Import temperature and humidity functions
@@ -28,7 +29,7 @@ while True:
     smsMessages = hologram.popReceivedSMS()
     if smsMessages != "None ":
         print smsMessages
-        sleep(5)
+        time.sleep(5)
 try:
     while True:
         if GPIO.input(BTN_PIN) == False:
