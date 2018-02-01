@@ -31,7 +31,7 @@ while True:
     if smsMessages != smsNone:
         print smsMessages
         time.sleep(5)
-    else 
+    else:
         time.sleep(5)
         print sleeping smsMessages
 try:
