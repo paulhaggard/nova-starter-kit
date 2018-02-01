@@ -33,7 +33,7 @@ while True:
         time.sleep(5)
     else:
         time.sleep(5)
-        print sleeping smsMessages
+        print "sleeping smsMessages"
 try:
     while True:
         if GPIO.input(BTN_PIN) == False:
