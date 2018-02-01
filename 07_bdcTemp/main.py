@@ -16,13 +16,19 @@ BTN_PIN = 27 ## GPIO pin the button is attached to
 GPIO.setup(BTN_PIN,GPIO.IN,pull_up_down=GPIO.PUD_UP) ## Setup GPIO pin as an input
 
 ## Exercise 05 - send data to Hologram's cloud through WiFi
-with open('../credentials.json') as key_file:
-    devicekey = json.load(key_file)
-## hologram = HologramCloud(devicekey, enable_inbound=False)
+#with open('../credentials.json') as key_file:
+#    devicekey = json.load(key_file)
+#hologram = HologramCloud(dict(), enable_inbound=True)
 
 ## Exercise 06 - send data to Hologram's cloud through Cellular
-hologram = HologramCloud(dict(), network='cellular', enable_inbound=False)
+hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.network.connect() ## connect from the cellular netowork
+smsMessages = null
+try:
+    while smsMessages != null
+      smsMessages = cloud.popReceivedSMS()
+      print smsMessages
+    continue
 
 try:
     while True:

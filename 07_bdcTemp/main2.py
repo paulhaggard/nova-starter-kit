@@ -5,7 +5,7 @@ global humBDC
 global luxBDC
 global tempMinAlarm
 global alarmBDC
-tempBDC = 38  #check if celsius or fahrenheit
+tempBDC = 30  #check if celsius or fahrenheit
 humBDC = 39
 luxBDC = 1000
 tempMinAlarm = 40           #temperature to set alarm bit
@@ -20,7 +20,7 @@ def pollingFunction():
   while True:
         while alarmBDC == 0:
             while alarmBDC == 0:
-                if tempBDC <= tempMinAlarm:
+                if tempBDC < tempMinAlarm:
                    alarmBDC = 1
                    continue
                 else:
@@ -36,7 +36,7 @@ def pollingFunction():
           print tempBDC
           
           while alarmBDC == 1:
-                if tempBDC >= tempMinAlarm:
+                if tempBDC > tempMinAlarm:
                    alarmBDC = 0
                    continue
                 else:
