@@ -22,10 +22,10 @@ GPIO.setup(BTN_PIN,GPIO.IN,pull_up_down=GPIO.PUD_UP) ## Setup GPIO pin as an inp
 
 ## Exercise 06 - send data to Hologram's cloud through Cellular
 hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
-HologramCloud.enableSMS()
+#hologram.enableSMS()
 #hologram.network.connect() ## connect from the cellular netowork
 while True:
-    smsMessages = HologramCloud.popReceivedSMS()
+    smsMessages = hologram.popReceivedSMS()
     print smsMessages
 try:
     while True:
