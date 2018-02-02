@@ -29,11 +29,13 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
 sendSMS = False 
-while True:
-    smsMessages = hologram.popReceivedSMS()
-    if smsMessages != smsNone:
-        print smsMessages
-        smsMessageString = smsMessages.message
+try: 
+    while True:
+      
+      smsMessages = hologram.popReceivedSMS()
+      if smsMessages != smsNone:
+          print smsMessages
+          smsMessageString = smsMessages.message
         
         if smsMessageString.find("update"):
             print type(smsMessages)
@@ -42,13 +44,12 @@ while True:
             os.system("sudo reboot")
 
         time.sleep(15)
-    else:
+      else:
         time.sleep(15)
         print "sleeping smsMessages"
-try:
-    while True:
-        pollingFunction()
-        if sendSMS == True:
+
+      pollingFunction()  
+      if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
