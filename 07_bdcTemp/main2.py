@@ -1,5 +1,7 @@
 #define variables
 import time
+from myDHT import getTempString, getHumString, getTemp, getHum ## Import temperature and humidity functions
+from myMCP import getLuxString, getLux ## Import photoresistor function
 #tempBDC #check if celsius or fahrenheit
 tempMinAlarm = 40           #temperature to set alarm bit
 alarmBDC = 0
