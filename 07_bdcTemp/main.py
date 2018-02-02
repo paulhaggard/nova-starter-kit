@@ -37,7 +37,7 @@ try:
           print smsMessages
           smsMessageString = smsMessages.message
         
-        if smsMessageString.find("update"):
+      if smsMessageString.find("update"):
             print type(smsMessages)
             os.system("cd /home/pi/nova-starter-kit/")
             os.system("sudo git pull")
