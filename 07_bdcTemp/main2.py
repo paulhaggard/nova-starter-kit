@@ -23,8 +23,8 @@ def pollingFunction():
   global tempMinAlarm
   global alarmBDC
   
+  
   while alarmBDC == 0:
-            while alarmBDC == 0:
                 time.sleep(10)
                 tempBDC = getTemp(DHT_PIN)
                 if tempBDC < tempMinAlarm:
@@ -45,7 +45,7 @@ def pollingFunction():
           print 'System Alarm!'
           print tempBDC
           
-          while alarmBDC == 1:
+          
                 if tempBDC > tempMinAlarm:
                    alarmBDC = 0
                    sendSMS = False
