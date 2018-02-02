@@ -68,7 +68,7 @@ try:
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
           i += 2
       for i in range (4,5):
-            pollingFunction()
+            sendSMS = pollingfunction()
             i = 0
       #heartbeatFunction() 
 
