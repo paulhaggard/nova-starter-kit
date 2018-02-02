@@ -38,7 +38,7 @@ try:
           print smsMessages
           smsMessageString = smsMessages.message
         
-      if smsMessageString.find("update"):
+          if smsMessageString.find("update"):
             print type(smsMessages)
             os.system("cd /home/pi/nova-starter-kit/")
             os.system("sudo git pull")
@@ -69,6 +69,6 @@ try:
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
 
 finally:
-    #GPIO.output(LED_PIN,False) ## Switch off LED
+    GPIO.output(LED_PIN,False) ## Switch off LED
     GPIO.cleanup()  ## reset all pins
     hologram.network.disconnect() ## Exercise 06 - disconnect from the cellular network
