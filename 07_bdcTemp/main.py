@@ -29,7 +29,7 @@ smsNone = hologram.popReceivedSMS()
 sendSMS = False
 try: 
     while True:
-      
+      for i in range (0, 1):
       smsMessages = hologram.popReceivedSMS()
       
       if smsMessages != smsNone:
@@ -46,10 +46,11 @@ try:
       else:
             time.sleep(15)
             print "sleeping smsMessages"
+      i += 1
 
- 
-      print sendSMS
-      if sendSMS == True:
+        for i in range (1, 2):
+          print sendSMS
+          if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
@@ -65,7 +66,10 @@ try:
             else:
                 print 'Error type [' + sent + ']'
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
-      pollingFunction()
+        i += 1
+            for i in range (2,3):
+            pollingFunction()
+            i = 0
       #heartbeatFunction() 
 
 finally:
