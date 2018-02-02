@@ -33,6 +33,7 @@ try:
     while True:
       
       smsMessages = hologram.popReceivedSMS()
+      
       if smsMessages != smsNone:
           print smsMessages
           smsMessageString = smsMessages.message
@@ -42,13 +43,14 @@ try:
             os.system("cd /home/pi/nova-starter-kit/")
             os.system("sudo git pull")
             os.system("sudo reboot")
-
-        time.sleep(15)
+            time.sleep(15)
+      
       else:
-        time.sleep(15)
-        print "sleeping smsMessages"
+            time.sleep(15)
+            print "sleeping smsMessages"
 
       pollingFunction()  
+     
       if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
