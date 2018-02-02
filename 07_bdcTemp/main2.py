@@ -1,13 +1,6 @@
 #define variables
 import time
-global tempBDC
-global humBDC
-global luxBDC
-global tempMinAlarm
-global alarmBDC
-tempBDC = 30  #check if celsius or fahrenheit
-humBDC = 39
-luxBDC = 1000
+#tempBDC #check if celsius or fahrenheit
 tempMinAlarm = 40           #temperature to set alarm bit
 alarmBDC = 0
 
@@ -22,14 +15,16 @@ def pollingFunction():
             while alarmBDC == 0:
                 if tempBDC < tempMinAlarm:
                    alarmBDC = 1
+                   sendSMS = True
+                   return sendSMS
                    continue
                 else:
                     time.sleep(5)
-                    print 'Sleeping'
-                    #tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
-                    #humBDC = getHum(DHT_PIN)
-                    #luxBDC = getLux(LUX_MCP)
-                    #print tempBDC + humBDC + luxBDC
+                    print 'Sleeping in non-alarm loop'
+                    tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
+                    humBDC = getHum(DHT_PIN)
+                    luxBDC = getLux(LUX_MCP)
+                    print tempBDC
                     print "temp is ok"
         else:
           print 'System Alarm!'
@@ -38,16 +33,16 @@ def pollingFunction():
           while alarmBDC == 1:
                 if tempBDC > tempMinAlarm:
                    alarmBDC = 0
+                   sendSMS = False
                    continue
                 else:
                     time.sleep(5)
-                    print 'Sleeping'
-                    #tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
-                    #humBDC = getHum(DHT_PIN)
-                    #luxBDC = getLux(LUX_MCP)
-                    #print tempBDC + humBDC + luxBDC
-                    print "temp is too low! incrementing temp!"
-                    tempBDC = tempBDC + 1
+                    print 'Sleeping in alarm loop'
+                    tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
+                    humBDC = getHum(DHT_PIN)
+                    luxBDC = getLux(LUX_MCP)
+                    print tempBDC
+                    
           continue
           
             #message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
@@ -59,6 +54,6 @@ def pollingFunction():
                 #print 'Success! Message sent to the cloud.'
                 #print message
                 
-pollingFunction()                
+              
                 
                 

@@ -1,6 +1,7 @@
 import time
 import os
 import RPi.GPIO as GPIO ## Import GPIO library
+from main2 import pollingFunction ## Import temperature polling
 from myLED import lightOn, lightOff ## Import blink function
 from myDHT import getTempString, getHumString ## Import temperature and humidity functions
 from myMCP import getLuxString ## Import photoresistor function
@@ -27,7 +28,7 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.enableSMS()
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
-print type(smsNone)
+sendSMS = False
 while True:
     smsMessages = hologram.popReceivedSMS()
     if smsMessages != smsNone:
@@ -45,7 +46,8 @@ while True:
         print "sleeping smsMessages"
 try:
     while True:
-        if GPIO.input(BTN_PIN) == False:
+        pollingFunction()
+        if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
