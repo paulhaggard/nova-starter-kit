@@ -73,7 +73,7 @@ try:
             sendSMS = pollingFunction()
             i = 0
       sendHeartBeat = heartbeatFunction() 
-        if sendHeartBeat == True:
+      if sendHeartBeat == True:
             localTime = localtime()
             sent = hologram.sendMessage("HeartBeat Verification at " + localTime)
             if sent == 0:
