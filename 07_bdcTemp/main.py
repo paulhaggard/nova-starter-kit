@@ -3,8 +3,6 @@ import os
 import RPi.GPIO as GPIO ## Import GPIO library
 from main2 import pollingFunction ## Import temperature polling
 from myLED import lightOn, lightOff ## Import blink function
-from myDHT import getTempString, getHumString ## Import temperature and humidity functions
-from myMCP import getLuxString ## Import photoresistor function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 import json ## Import library to create and read JSON
 

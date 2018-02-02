@@ -1,7 +1,12 @@
 #define variables
 import time
+import RPi.GPIO as GPIO ## Import GPIO library
+from myLED import lightOn, lightOff ## Import blink function
+from myDHT import getTemp, getHum ## Import temperature and humidity functions
+from myMCP import getLux ## Import photoresistor function
 from myDHT import getTempString, getHumString, getTemp, getHum ## Import temperature and humidity functions
 from myMCP import getLuxString, getLux ## Import photoresistor function
+from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 #tempBDC #check if celsius or fahrenheit
 tempMinAlarm = 40           #temperature to set alarm bit
 alarmBDC = 0
