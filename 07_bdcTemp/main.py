@@ -34,7 +34,7 @@ x = 0
 try: 
     while True:
       x += 1
-      print "X is at " + str(x) + ' with a signal of ' + str(HologramCloud.getSignalStrength())
+      print "X is at " + str(x) + ' with a signal of ' + str(os.system("sudo hologram modem signal"))
       for i in range (0, 1):
         smsMessages = hologram.popReceivedSMS()
       
