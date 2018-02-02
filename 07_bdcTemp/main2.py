@@ -26,7 +26,7 @@ def pollingFunction(sendSMS):
         while alarmBDC == 0:
             while alarmBDC == 0:
                 tempBDC = getTemp(DHT_PIN)
-                
+                time.sleep(10)
                 if tempBDC < tempMinAlarm:
                    alarmBDC = 1
                    sendSMS = True
