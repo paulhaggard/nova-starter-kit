@@ -47,7 +47,7 @@ try:
             time.sleep(15)
             print "sleeping smsMessages"
 
-      pollingFunction()  
+      pollingFunction(sendSMS)  
      
       if sendSMS == True:
 
