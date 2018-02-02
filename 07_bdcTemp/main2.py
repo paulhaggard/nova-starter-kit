@@ -23,7 +23,7 @@ def pollingFunction():
   global tempMinAlarm
   global alarmBDC
   
-        while alarmBDC == 0:
+  while alarmBDC == 0:
             while alarmBDC == 0:
                 time.sleep(10)
                 tempBDC = getTemp(DHT_PIN)
@@ -40,7 +40,7 @@ def pollingFunction():
                     #luxBDC = getLux(LUX_MCP)
                     print tempBDC
                     print "temp is ok"
-        else:
+  else:
           print 'System Alarm!'
           print tempBDC
           
