@@ -57,7 +57,7 @@ def pollingFunction():
                     #luxBDC = getLux(LUX_MCP)
                     print tempBDC
                     
-          continue
+          
           
             #message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
             #sent = hologram.sendMessage(message)
