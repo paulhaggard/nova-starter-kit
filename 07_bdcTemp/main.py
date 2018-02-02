@@ -47,8 +47,7 @@ try:
             time.sleep(15)
             print "sleeping smsMessages"
 
-      pollingFunction()
-      #heartbeatFunction()  
+ 
       print sendSMS
       if sendSMS == True:
 
@@ -66,6 +65,8 @@ try:
             else:
                 print 'Error type [' + sent + ']'
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
+      pollingFunction()
+      #heartbeatFunction() 
 
 finally:
     #GPIO.output(LED_PIN,False) ## Switch off LED

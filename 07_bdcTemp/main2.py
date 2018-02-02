@@ -8,7 +8,7 @@ from myDHT import getTempString, getHumString, getTemp, getHum ## Import tempera
 from myMCP import getLuxString, getLux ## Import photoresistor function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 #tempBDC #check if celsius or fahrenheit
-tempMinAlarm = 40           #temperature to set alarm bit
+tempMinAlarm = 60           #temperature to set alarm bit
 alarmBDC = 0
 
 LED_PIN = 17 ## GPIO pin the LED is attached to
