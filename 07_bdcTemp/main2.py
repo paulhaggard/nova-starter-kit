@@ -11,6 +11,11 @@ from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud librar
 tempMinAlarm = 40           #temperature to set alarm bit
 alarmBDC = 0
 
+LED_PIN = 17 ## GPIO pin the LED is attached to
+DHT_PIN = 21 ## GPIO pin the DHT sensor is attached to
+LUX_MCP = 0 ## ADC pin the Photoresistor is attached to
+BTN_PIN = 27 ## GPIO pin the button is attached to
+
 def pollingFunction():
   global tempBDC
   global humBDC
