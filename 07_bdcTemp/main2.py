@@ -16,7 +16,7 @@ DHT_PIN = 21 ## GPIO pin the DHT sensor is attached to
 LUX_MCP = 0 ## ADC pin the Photoresistor is attached to
 BTN_PIN = 27 ## GPIO pin the button is attached to
 
-def pollingFunction(sendSMS):
+def pollingFunction():
   global tempBDC
   global humBDC
   global luxBDC

@@ -47,9 +47,10 @@ try:
             time.sleep(15)
             print "sleeping smsMessages"
 
-      pollingFunction(sendSMS)  
+      pollingFunction()
+      #heartbeatFunction()  
       print sendSMS
-      if sendSMS == True:
+        if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
