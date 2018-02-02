@@ -32,11 +32,12 @@ while True:
     smsMessages = hologram.popReceivedSMS()
     if smsMessages != smsNone:
         print smsMessages
+        smsMessageString = smsMessages.message
         print type(smsMessages)
-        #if smsMessages.find("update"):
-        #    os.system("cd ~/nova-starter-kit/")
-          #  os.system("git pull")
-         #   os.system("sudo restart")
+        if smsMessageString.find("update"):
+            os.system("cd ~/nova-starter-kit/")
+            os.system("git pull")
+            os.system("sudo restart")
 
         time.sleep(15)
     else:
