@@ -30,9 +30,9 @@ sendSMS = False
 try: 
     while True:
       for i in range (0, 1):
-      smsMessages = hologram.popReceivedSMS()
+        smsMessages = hologram.popReceivedSMS()
       
-      if smsMessages != smsNone:
+        if smsMessages != smsNone:
           print smsMessages
           smsMessageString = smsMessages.message
         
