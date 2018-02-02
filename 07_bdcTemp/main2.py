@@ -46,11 +46,11 @@ def pollingFunction():
           print tempBDC
           
           
-                if tempBDC > tempMinAlarm:
+          if tempBDC > tempMinAlarm:
                    alarmBDC = 0
                    sendSMS = False
                    break
-                else:
+          else:
                     time.sleep(10)
                     print 'Sleeping in alarm loop'
                     tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
