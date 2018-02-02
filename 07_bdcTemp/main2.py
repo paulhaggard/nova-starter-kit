@@ -31,7 +31,7 @@ def pollingFunction():
                    alarmBDC = 1
                    sendSMS = True
                    return sendSMS
-                   continue
+                   
                 else:
                     
                     print 'Sleeping in non-alarm loop'
@@ -40,6 +40,7 @@ def pollingFunction():
                     #luxBDC = getLux(LUX_MCP)
                     print tempBDC
                     print "temp is ok"
+                    break
   else:
           print 'System Alarm!'
           print tempBDC
@@ -48,7 +49,7 @@ def pollingFunction():
                 if tempBDC > tempMinAlarm:
                    alarmBDC = 0
                    sendSMS = False
-                   continue
+                   break
                 else:
                     time.sleep(10)
                     print 'Sleeping in alarm loop'
@@ -56,8 +57,9 @@ def pollingFunction():
                     #humBDC = getHum(DHT_PIN)
                     #luxBDC = getLux(LUX_MCP)
                     print tempBDC
+                    break
                     
-          
+            
           
             #message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
             #sent = hologram.sendMessage(message)
