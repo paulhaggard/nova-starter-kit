@@ -48,7 +48,7 @@ try:
             print "sleeping smsMessages"
 
       pollingFunction(sendSMS)  
-     
+      print sendSMS
       if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi

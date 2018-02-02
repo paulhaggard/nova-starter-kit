@@ -22,7 +22,6 @@ def pollingFunction(sendSMS):
   global luxBDC
   global tempMinAlarm
   global alarmBDC
-  global sendSMS
   while True:
         while alarmBDC == 0:
             while alarmBDC == 0:
