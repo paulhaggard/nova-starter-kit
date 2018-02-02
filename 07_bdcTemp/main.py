@@ -32,7 +32,7 @@ sendSMS = False
 x = 0
 try: 
     while True:
-      signalStrength = HologramCloud.getSignalStrength()
+      signalStrength = hologram.cellular.signal_strength
       x += 1
       print "X is at " + str(x) + ' with a signal of ' + str(signalStrength)
       for i in range (0, 1):
