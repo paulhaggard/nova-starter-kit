@@ -22,7 +22,7 @@ def pollingFunction():
   global luxBDC
   global tempMinAlarm
   global alarmBDC
-  while True:
+  
         while alarmBDC == 0:
             while alarmBDC == 0:
                 time.sleep(10)
