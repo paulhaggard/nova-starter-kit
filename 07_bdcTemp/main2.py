@@ -57,7 +57,7 @@ def pollingFunction():
                     tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
                     #humBDC = getHum(DHT_PIN)
                     #luxBDC = getLux(LUX_MCP)
-                    print tempBDC " is (or was recently) lower than alarm setpoint of " + tempMinAlarm
+                    print tempBDC + " is (or was recently) lower than alarm setpoint of " + tempMinAlarm
                     break
                     
                     
