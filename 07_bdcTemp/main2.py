@@ -14,7 +14,7 @@ DHT_PIN = 21 ## GPIO pin the DHT sensor is attached to
 LUX_MCP = 0 ## ADC pin the Photoresistor is attached to
 BTN_PIN = 27 ## GPIO pin the button is attached to
 
-def heartbeatFunction()
+def heartbeatFunction():
   time.sleep(100)
   return True
 
