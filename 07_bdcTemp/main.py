@@ -5,6 +5,8 @@ from main2 import pollingFunction ## Import temperature polling
 from myLED import lightOn, lightOff ## Import blink function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 import json ## Import library to create and read JSON
+from myDHT import getTempString, getHumString, getTemp, getHum ## Import temperature and humidity functions
+from myMCP import getLuxString, getLux ## Import photoresistor function
 
 GPIO.setmode(GPIO.BCM) ## Use broadcom pin numbering
 
