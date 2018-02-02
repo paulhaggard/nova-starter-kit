@@ -33,10 +33,10 @@ while True:
     if smsMessages != smsNone:
         print smsMessages
         print type(smsMessages)
-        if smsMessages.find("update"):
-            os.system("cd ~/nova-starter-kit/")
-            os.system("git pull")
-            os.system("sudo restart")
+        #if smsMessages.find("update"):
+        #    os.system("cd ~/nova-starter-kit/")
+          #  os.system("git pull")
+         #   os.system("sudo restart")
 
         time.sleep(15)
     else:
