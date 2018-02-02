@@ -34,7 +34,9 @@ x = 0
 try: 
     while True:
       x += 1
-      print "X is at " + str(x) + ' with a signal of ' + str(os.system("sudo hologram modem signal"))
+      os.system("sudo hologram modem signal >> /home/signalfile.hologram")
+      signalFile = open('/home/signalfile.hologram')
+      print "X is at " + str(x) + ' with a signal of ' + str(signalFile)
       for i in range (0, 1):
         smsMessages = hologram.popReceivedSMS()
       
@@ -80,7 +82,8 @@ try:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
-            signalStrength = HologramCloud.getSignalStrength()
+            os.system("sudo hologram modem signal > /home/latestsignal.hologram")
+            signalStrength = open('/home/latestsignal.hologram')
             sent = hologram.sendMessage("HeartBeat Verification at " + str(time.localTime) + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + str(signalStrength))
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
