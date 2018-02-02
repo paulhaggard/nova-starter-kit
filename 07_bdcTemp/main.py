@@ -1,7 +1,7 @@
 import time
 import os
 import RPi.GPIO as GPIO ## Import GPIO library
-from main2 import pollingFunction ## Import temperature polling
+from main2 import pollingFunction, heartbeatFunction ## Import temperature polling
 from myLED import lightOn, lightOff ## Import blink function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 import json ## Import library to create and read JSON
@@ -47,7 +47,7 @@ try:
       
       else:
             time.sleep(15)
-            print "sleeping smsMessages"
+            print "...waiting for smsMessages.  None to report."
       i += 2
 
       for i in range (2, 3):
@@ -72,7 +72,18 @@ try:
       for i in range (4,5):
             sendSMS = pollingFunction()
             i = 0
-      #heartbeatFunction() 
+      sendHeartBeat = heartbeatFunction() 
+        if sendHeartBeat == True:
+            localTime = localtime()
+            sent = hologram.sendMessage("HeartBeat Verification at " + localTime)
+            if sent == 0:
+                print 'Success! Message sent to the cloud.'
+                print message
+                sendHeartBeat = False
+            else:
+                print 'Error type [' + sent + ']'
+                print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
+            sendHeartBeat = False
 
 finally:
     #GPIO.output(LED_PIN,False) ## Switch off LED
