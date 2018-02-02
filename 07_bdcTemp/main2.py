@@ -13,7 +13,7 @@ def pollingFunction():
   while True:
         while alarmBDC == 0:
             while alarmBDC == 0:
-              tempBDC = getTemp(DHT_PIN)
+            tempBDC = getTemp(DHT_PIN)
                 if tempBDC < tempMinAlarm:
                    alarmBDC = 1
                    sendSMS = True
