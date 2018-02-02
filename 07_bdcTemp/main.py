@@ -84,7 +84,7 @@ try:
             localTime = time.localtime()
             os.system("sudo hologram modem signal > /home/latestsignal.hologram")
             signalStrength = open('/home/latestsignal.hologram')
-            sent = hologram.sendMessage("HeartBeat Verification at " + str(time.localTime) + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + signalStrength.read()
+            sent = hologram.sendMessage("HeartBeat Verification at " + str(time.localTime) + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + str(signalStrength))
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
                 print message
