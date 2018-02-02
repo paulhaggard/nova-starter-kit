@@ -35,6 +35,7 @@ def pollingFunction():
                 if tempBDC < tempMinAlarm:
                    alarmBDC = 1
                    sendSMS = True
+                   print 'Temperature is below alarm setpoint, ' + str(tempMinAlarm) + ' at ' + str(tempBDC)
                    return sendSMS
                    
                 else:
@@ -43,7 +44,7 @@ def pollingFunction():
                     #tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
                     #humBDC = getHum(DHT_PIN)
                     #luxBDC = getLux(LUX_MCP)
-                    print tempBDC + " is higher than alarm setpoint of " + tempMinAlarm
+                    print str(tempBDC) + " is higher than alarm setpoint of " + str(tempMinAlarm)
                     break
           
   while alarmBDC == 1:        
@@ -57,7 +58,7 @@ def pollingFunction():
                     tempBDC = getTemp(DHT_PIN)  #check if celsius or fahrenheit
                     #humBDC = getHum(DHT_PIN)
                     #luxBDC = getLux(LUX_MCP)
-                    print tempBDC + " is (or was recently) lower than alarm setpoint of " + tempMinAlarm
+                    print str(tempBDC) + " is (or was recently) lower than alarm setpoint of " + str(tempMinAlarm)
                     break
                     
                     
