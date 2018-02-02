@@ -26,6 +26,7 @@ GPIO.setup(BTN_PIN,GPIO.IN,pull_up_down=GPIO.PUD_UP) ## Setup GPIO pin as an inp
 
 ## Exercise 06 - send data to Hologram's cloud through Cellular
 hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
+hologramCC = HologramCustomCloud()
 #hologram.enableSMS()
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
@@ -33,7 +34,7 @@ sendSMS = False
 x = 0
 try: 
     while True:
-      signalStrength = hologram.cellular.signal_strength
+      signalStrength = hologramCC.cellular.signal_strength
       x += 1
       print "X is at " + str(x) + ' with a signal of ' + str(signalStrength)
       for i in range (0, 1):
