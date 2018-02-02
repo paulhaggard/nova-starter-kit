@@ -75,7 +75,7 @@ try:
       for i in range (4,5):
             sendSMS = pollingFunction()
             i = 0
-      if x = 10000
+      if x > 10000:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
