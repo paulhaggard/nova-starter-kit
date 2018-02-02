@@ -46,9 +46,9 @@ try:
       else:
             time.sleep(15)
             print "sleeping smsMessages"
-      i += 1
+      i += 2
 
-      for i in range (1, 2):
+      for i in range (2, 3):
           print sendSMS
           if sendSMS == True:
 
@@ -66,8 +66,8 @@ try:
             else:
                 print 'Error type [' + sent + ']'
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
-          i += 1
-      for i in range (2,3):
+          i += 2
+      for i in range (4,5):
             pollingFunction()
             i = 0
       #heartbeatFunction() 
