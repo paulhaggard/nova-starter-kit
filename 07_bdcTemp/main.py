@@ -80,7 +80,7 @@ try:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
-            sent = hologram.sendMessage("HeartBeat Verification at " + time.localTime + "with temperature of " + getTempString(DHT_PIN) ' and a signal of ' hologram.signal)
+            sent = hologram.sendMessage("HeartBeat Verification at " + time.localTime + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + hologram.signal)
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
                 print message
