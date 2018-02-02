@@ -15,7 +15,7 @@ LUX_MCP = 0 ## ADC pin the Photoresistor is attached to
 BTN_PIN = 27 ## GPIO pin the button is attached to
 
 def heartbeatFunction():
-  time.sleep(100)
+
   return True
 
 

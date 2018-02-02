@@ -31,6 +31,8 @@ smsNone = hologram.popReceivedSMS()
 sendSMS = False
 try: 
     while True:
+    x=0
+    x += 1
       for i in range (0, 1):
         smsMessages = hologram.popReceivedSMS()
       
@@ -51,7 +53,7 @@ try:
       i += 2
 
       for i in range (2, 3):
-          print sendSMS
+          
           if sendSMS == True:
 
             ## Exercise 05 - send data to Hologram's cloud through WiFi
@@ -72,10 +74,11 @@ try:
       for i in range (4,5):
             sendSMS = pollingFunction()
             i = 0
-      sendHeartBeat = heartbeatFunction() 
-      if sendHeartBeat == True:
-            localTime = localtime()
-            sent = hologram.sendMessage("HeartBeat Verification at " + localTime)
+      if x = 10000
+        sendHeartBeat = heartbeatFunction() 
+        if sendHeartBeat == True:
+            localTime = time.localtime()
+            sent = hologram.sendMessage("HeartBeat Verification at " + time.localTime + "with temperature of " + getTempString(DHT_PIN))
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
                 print message
@@ -84,6 +87,7 @@ try:
                 print 'Error type [' + sent + ']'
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
             sendHeartBeat = False
+            x = 0
 
 finally:
     #GPIO.output(LED_PIN,False) ## Switch off LED
