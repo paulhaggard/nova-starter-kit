@@ -35,9 +35,10 @@ while True:
         smsMessageString = smsMessages.message
         print type(smsMessages)
         if smsMessageString.find("update"):
-            os.system("cd ~/nova-starter-kit/")
+            os.getcwd() 
+            os.system("cd /home/pi/nova-starter-kit/")
             os.system("git pull")
-            os.system("sudo restart")
+            os.system("")
 
         time.sleep(15)
     else:
