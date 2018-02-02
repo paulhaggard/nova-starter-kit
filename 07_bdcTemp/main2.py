@@ -22,9 +22,11 @@ def pollingFunction(sendSMS):
   global luxBDC
   global tempMinAlarm
   global alarmBDC
+  global sendSMS
   while True:
         while alarmBDC == 0:
             while alarmBDC == 0:
+                time.sleep(10)
                 tempBDC = getTemp(DHT_PIN)
                 time.sleep(10)
                 if tempBDC < tempMinAlarm:
