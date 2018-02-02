@@ -32,7 +32,7 @@ sendSMS = False
 x = 0
 try: 
     while True:
-      signalStrength = hologram.getSignalStrength()
+      signalStrength = HologramCloud.getSignalStrength()
       x += 1
       print "X is at " + str(x) + ' with a signal of ' + str(signalStrength)
       for i in range (0, 1):
@@ -80,7 +80,7 @@ try:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
-            signalStrength = hologram.getSignalStrength()
+            signalStrength = HologramCloud.getSignalStrength()
             sent = hologram.sendMessage("HeartBeat Verification at " + str(time.localTime) + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + str(signalStrength))
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
