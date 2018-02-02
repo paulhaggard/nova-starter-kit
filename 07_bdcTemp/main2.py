@@ -49,7 +49,7 @@ def pollingFunction():
           if tempBDC > tempMinAlarm:
                    alarmBDC = 0
                    sendSMS = False
-                   
+                   return sendSMS
           else:
                     time.sleep(10)
                     print 'Sleeping in alarm loop'
@@ -57,6 +57,8 @@ def pollingFunction():
                     #humBDC = getHum(DHT_PIN)
                     #luxBDC = getLux(LUX_MCP)
                     print tempBDC
+                    sendSMS = True
+                    return sendSMS
                     
                     
             
