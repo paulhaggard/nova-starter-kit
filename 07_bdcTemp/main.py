@@ -26,7 +26,7 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.enableSMS()
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
-
+sendSMS = False
 try: 
     while True:
       
