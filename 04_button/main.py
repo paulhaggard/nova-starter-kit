@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import blink ## Import blink function
-from myDHT import getTempString, getHumString ## Import temperature and humidity functions
+from myDHT import getTempString, getHumString, getTemp ## Import temperature and humidity functions
 from myMCP import getLuxString ## Import photoresistor function
 
 GPIO.setmode(GPIO.BCM) ## Use broadcom pin numbering
@@ -22,7 +22,7 @@ try:
 
             ## Exercise 02 - read a digital sensor
             blink(LED_PIN) ## blink the LED
-            print getTempString(DHT_PIN) ## print temp string to terminal
+            print getTemp(DHT_PIN) ## print temp string to terminal
             blink(LED_PIN)
             print getHumString(DHT_PIN) ## print hum string to terminal
             blink(LED_PIN)

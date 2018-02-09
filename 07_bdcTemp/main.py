@@ -46,8 +46,11 @@ try:
         
           if smsMessageString.find("update"):
             print type(smsMessages)
+	    hologram.network.connect()
+            time.sleep(20)
             os.system("cd /home/pi/nova-starter-kit/")
             os.system("sudo git pull")
+            sent = hologram.sendMessage("Update Pulled.")
             os.system("sudo reboot")
             time.sleep(15)
       
@@ -78,19 +81,19 @@ try:
       for i in range (4,5):
             sendSMS = pollingFunction()
             i = 0
-      if x > 10000:
+      if x > 500:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
             os.system("sudo hologram modem signal > /home/latestsignal.hologram")
             signalStrength = open('/home/latestsignal.hologram')
-            sent = hologram.sendMessage("HeartBeat Verification at " + str(time.localTime) + "with temperature of " + getTempString(DHT_PIN) + ' and a signal of ' + signalStrength.read())
+            sent = hologram.sendMessage("HeartBeat Verification at " + time.strftime("%a %b %d, %I:%M %P ", ) + "where " + getTempString(DHT_PIN) + ' and ' + signalStrength.read())
             if sent == 0:
                 print 'Success! Message sent to the cloud.'
-                print message
                 sendHeartBeat = False
             else:
-                print 'Error type [' + sent + ']'
+                #add ability to write error to log file, pull remotely
+                print 'Error type [' + str(sent) + ']'
                 print 'Error descriptions: https://hologram.io/docs/reference/cloud/python-sdk/#-sendmessage-message-topics-none-timeout-5-'
             sendHeartBeat = False
             x = 0

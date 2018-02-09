@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import lightOn, lightOff ## Import blink function
-from myDHT import getTemp, getHum ## Import temperature and humidity functions
-from myMCP import getLux ## Import photoresistor function
+from myDHT import getTempString, getHumString ## Import temperature and humidity functions
+from myMCP import getLuxString ## Import photoresistor function
 from Hologram.HologramCloud import HologramCloud ## Import Hologram cloud library
 import json ## Import library to create and read JSON
 
@@ -16,13 +16,14 @@ BTN_PIN = 27 ## GPIO pin the button is attached to
 GPIO.setup(BTN_PIN,GPIO.IN,pull_up_down=GPIO.PUD_UP) ## Setup GPIO pin as an input
 
 ## Exercise 05 - send data to Hologram's cloud through WiFi
-with open('../credentials.json') as key_file:
-    devicekey = json.load(key_file)
+#with open('../credentials.json') as key_file:
+#    devicekey = json.load(key_file)
 ## hologram = HologramCloud(devicekey, enable_inbound=False)
 
 ## Exercise 06 - send data to Hologram's cloud through Cellular
-hologram = HologramCloud(devicekey, network='cellular', enable_inbound=False)
-hologram.network.connect() ## connect from the cellular netowork
+#hologram = HologramCloud(devicekey, network='cellular', enable_inbound=False)
+hologram = HologramCloud(dict(), network='cellular')
+# hologram.network.connect() ## connect from the cellular netowork
 
 try:
     while True:
@@ -31,8 +32,9 @@ try:
             ## Exercise 05 - send data to Hologram's cloud through WiFi
             lightOn(LED_PIN)
 
-            message = json.dumps({'h': getHum(DHT_PIN), 't': getTemp(DHT_PIN), 'l': getLux(LUX_MCP)})
-            sent = hologram.sendMessage(message)
+            message = json.dumps({'h': getHumString(DHT_PIN), 't': getTempString(DHT_PIN), 'l': getLuxString(LUX_MCP)})
+            message_pretty = getTempString(DHT_PIN)
+            sent = hologram.sendMessage(message_pretty)
 
             lightOff(LED_PIN)
 

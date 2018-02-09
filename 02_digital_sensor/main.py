@@ -1,3 +1,4 @@
+import pdb
 import RPi.GPIO as GPIO ## Import GPIO library
 from myLED import blink ## Import blink function
 from myDHT import getTempString, getHumString ## Import temperature and humidity functions
@@ -12,6 +13,7 @@ DHT_PIN = 21 ## GPIO pin the DHT sensor is attached to
 
 ## Exercise 02 - read a digital sensor
 blink(LED_PIN) ## blink the LED
+pdb.set_trace()
 print getTempString(DHT_PIN) ## print temp string to terminal
 blink(LED_PIN)
 print getHumString(DHT_PIN) ## print hum string to terminal
