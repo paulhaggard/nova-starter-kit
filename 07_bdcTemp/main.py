@@ -30,6 +30,7 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
 sendSMS = False
+sent = hologram.sendMessage('Startup.')
 x = 0
 try: 
     while True:
@@ -81,7 +82,7 @@ try:
       for i in range (4,5):
             sendSMS = pollingFunction()
             i = 0
-      if x > 500:
+      if x > 2400:
         sendHeartBeat = heartbeatFunction() 
         if sendHeartBeat == True:
             localTime = time.localtime()
