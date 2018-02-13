@@ -30,8 +30,8 @@ hologram = HologramCloud(dict(), network='cellular', enable_inbound=True)
 #hologram.network.connect() ## connect from the cellular netowork
 smsNone = hologram.popReceivedSMS()
 sendSMS = False
-time.sleep(45)
-sent = hologram.sendMessage('Startup.')
+#time.sleep(45)
+#sent = hologram.sendMessage('Startup.')
 x = 0
 try: 
     while True:
@@ -55,7 +55,11 @@ try:
             sent = hologram.sendMessage("Update Pulled.")
             os.system("sudo reboot")
             time.sleep(15)
-      
+          elif smsMessageString.find("ping"):
+            sent = hologram.sendMessage("Ping received.")
+
+
+
       else:
             time.sleep(15)
             print "...waiting for smsMessages.  None to report."
