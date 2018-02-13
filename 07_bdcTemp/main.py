@@ -52,7 +52,7 @@ try:
             time.sleep(20)
             os.system("cd /home/pi/nova-starter-kit/")
             os.system("sudo git pull")
-            sent = hologram.sendMessage("Update Pulled.")
+            sent = hologram.sendMessage("Update Pulled!")
             os.system("sudo reboot")
             time.sleep(15)
           elif smsMessageString.find("ping"):
